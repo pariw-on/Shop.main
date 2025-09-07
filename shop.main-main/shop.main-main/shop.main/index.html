@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        * {
+            direction: rtl;
+        }
+    </Style>
+</head>
+
+<body>
+    <h1>
+        نوع ارسال سفارش را انتخاب کنید
+    </h1>
+
+    <div>
+        <input type="radio" id="ordinary" value="00 " name="export" onclick="updateTotal()">(رایگان)ارسال معمولی
+    </div>
+    <div>
+        <input type="radio" id="express" value="20000 " name="export" onclick="updateTotal()">(تومان20000)ارسال سریع
+    </div>
+    <div>
+        <input type="radio" id="vip" value="50000 " name="export" onclick="updateTotal()">(تومان50000)ارسال ویژه
+    </div>
+    <div id="totalamount">هزینه ارسال:0 تومان</div>
+
+    <script>
+        let ordinary = document.getElementById("ordinary");
+        let express = document.getElementById("express");
+        let vip = document.getElementById("vip");
+        let totalbox=document.getElementById("totalamount");
+
+        function updateTotal() {
+            let total = 0;
+            if (ordinary.checked) {
+                total += Number(ordinary.value);
+
+            }
+            if (express.checked) {
+                total += Number(express.value);
+
+            }
+            if (vip.checked) {
+                total += Number(vip.value);
+            }
+            totalbox.innerHTML = "total: $ " + total;
+        }
+
+    </script>
+</body>
+
+</html>
